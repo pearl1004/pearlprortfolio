@@ -1,0 +1,363 @@
+@charset "utf-8";
+
+* {
+    margin:0; padding:0; box-sizing: border-box;
+}
+::-webkit-scrollbar {width:0;}
+html {scroll-behavior: smooth;}
+html, body { font-family: "Noto Sans KR", sans-serif;}
+body {
+    min-height:200vh;
+}
+a {
+    text-decoration: none; color:black;
+}
+img {
+    max-width: 100%;
+}
+h2 {
+    text-align: center; font-size:3rem; padding:80pt 0 40pt;
+}
+
+/* 상단(header) 배경이미지 */
+#top {
+    height: 100vh; position: relative;
+    background: url("../images/bg.jpg") no-repeat fixed center center / cover ;
+}
+
+/* 상단메뉴 */
+#top nav {
+    position:fixed; width:100%; top:0; z-index: 1;
+    padding:13pt 10pt; font-weight: bold;
+}
+#top nav.act {
+    background: #294366; z-index: 1;
+}
+#top nav> div {
+    max-width: 1300px; margin:auto;
+    display: flex; justify-content: space-between;
+}
+
+/* 데스크탑에서는 햄버거아이콘 안보임 */
+#top button {display: none;}
+
+#top p {
+    color:white; font-size:1.2rem;
+}
+#menu a {
+    color:white; margin-left:20pt;
+}
+#menu a:hover, #menu a:focus , #menu a.act {
+    color:tomato;
+}
+
+/* 타자치는 효과 */
+#typing {   
+    position: absolute; top:40%; width:100%;
+    color:white;  text-align: center;
+}
+#typeText {
+    font-size:4rem;
+}
+#cursor {
+    font-size:2.7rem; 
+    transform:translateY(-12px); display: inline-block;
+    animation: blink 0.5s steps(2) infinite;
+}
+@keyframes blink {   
+    to   {opacity:0;}
+}
+
+/*첫장면 하단 움직이는 ▽ 화살표와 Click 글자 부분*/
+#click b.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 700,
+        'GRAD' 200,
+        'opsz' 24 ;   
+    font-size:5rem;
+    text-shadow: 0 0 10px black;
+    animation: updown 1s both infinite;
+}
+@keyframes updown {
+    from {transform: translateY(-20px); opacity: 0;}
+    to   {transform: translateY(0); opacity: 1;}
+}
+
+#click {
+    color:white; display: block;
+    width:100%; position: absolute; bottom:20px;
+    text-align: center;
+}
+#click i {
+    font-style: normal; display: block;
+    font-size:1.4rem;
+}
+
+/* SKILL (포토샵/일러스트/등..) */
+#about {
+    background: #d9e7fd; padding-bottom: 50px;
+}
+#about h3 {
+    padding-bottom: 10px;
+}
+#about div {   
+    max-width: 1300px; margin:auto;
+    display: flex;
+}
+#about img {
+    display: block; margin: auto; 
+    width:300px; max-width:60%;
+}
+#about q {
+    display: block; margin: auto; width:fit-content;
+    padding:10px 0 70px;
+}
+#about section {
+    flex:1;  padding:10px;
+}
+#about section:nth-child(2) {    
+    flex:1.7;
+}
+#about mark{background: none;}/* 형광팬효과 */
+#skill {
+    flex:1.3;
+}
+#skill label {
+    display: inline-block; width:40%;
+}
+#skill p:nth-child(4) {
+    letter-spacing: -1px;
+}
+#skill progress {
+    width:55%; height:10px;
+    -webkit-appearance:none;
+}
+#skill ::-webkit-progress-bar {
+    background:#555; border-radius: 5px; overflow: hidden;
+}
+#skill ::-webkit-progress-value {
+    background:rgb(252, 239, 2);
+}
+
+/************************/
+/*포트폴리오*/
+#portfolio {    
+    max-width:1300px; margin:auto;
+}
+#portfolio section {
+    display: flex; min-height:100vh; padding-top:20vh;
+    transform:translateY(200pt); opacity:0;
+    transition:1s;
+}
+#portfolio section.act {
+    transform:translateY(0); opacity:1;
+}
+#port1 {
+    min-height:70vh; padding-top:0;
+}
+#portfolio .left {
+    flex:1.1;
+}
+#portfolio .right {
+    flex:1; margin-left:60px;
+}
+#portfolio h3 {
+    font-size:1.8rem; padding-bottom: 20pt;
+}
+#portfolio ul {
+    list-style: none; line-height: 200%;
+}
+#portfolio li {
+    display: flex;
+}
+#portfolio b {
+    flex:1;    
+}
+#portfolio span {
+   flex:5; text-align: justify;
+}
+#portfolio a {
+    padding:5pt 15pt 6pt; border:1px solid #ddd;
+    margin:30pt 2pt 5pt; border-radius: 20pt; display: inline-block;
+    font-weight: 500; font-size:1.1rem;
+    transition: 0.5s;
+}
+#portfolio a:hover , #portfolio a:focus {
+    background: #d9e7fd; color:white;
+}
+/*짝수(<section>의 차례 2,4,6,8,,,) */
+#portfolio section:nth-of-type(even) .left  { order: 2; }
+#portfolio section:nth-of-type(even) .right { 
+    order: 1; margin-left:0; margin-right:60px;
+}
+
+/* 이벤트 (썸네일클릭하면, 큰이미지 보인다) */
+#event {
+    max-width: 1200px; margin:auto; padding-bottom: 30pt;
+}
+#event div {
+    display: flex; flex-wrap: wrap; 
+    justify-content: center;
+}
+#event button {
+    position: relative; cursor: pointer;
+    margin:10pt; border:none;
+}
+#event button img {
+    transition: filter 0.5s;
+}
+#event i.material-symbols-outlined {
+    font-size: 3rem; color:white;
+    position: absolute; top:37%; left:40%;     display: none;
+}
+#event b {
+    font-size:1.05rem; color:white; font-weight: normal;
+    position: absolute; top:58%; left:35%;     display: none
+}
+
+/* 이미지가 있는 버튼에 마우스를 댔을때 */
+#event button:hover img , #event button:focus img{
+    filter: brightness(0.2);
+}
+#event button:hover i , #event button:focus i {
+    display: block;
+}
+#event button:hover b , #event button:focus b {
+    display: block;
+}
+
+/* Contact Us */
+#contact {
+    background: #d9e7fd; min-height: 100vh;
+}
+#contact div {
+    display: flex; justify-content: space-between;
+    max-width:600px; margin:auto; margin-top:10vh;
+    text-align: center;
+}
+#contact .fa-solid {
+    font-size:8.5rem; color:skyblue;
+}
+#contact h3 {
+    font-size: 2rem; text-align: center;
+}
+#contact b {
+    font-size: 1.5rem; font-weight: 300;
+    display: block; padding-top: 10pt;
+}
+
+
+
+/* 큰이미지보이기 (팝업모달) */
+#popup {
+    position: fixed; top:0; left:0; z-index: 1;
+    width:100%; height: 100vh; overflow-y: auto;
+    background: rgba(0,0,0, 0.9);  cursor: pointer;
+    display: none;
+}
+#popup h3 {
+    background: black; color:white;
+    padding:20pt; text-align: center; font-size:1.7rem;
+}
+#popup img {
+    display: block; margin: auto; max-width: 70%;
+}
+
+
+
+/*******************************************************/
+/******  모바일(0~800픽셀넓이) *****/
+@media( max-width:800px ){
+    h2 {
+        font-size:2.7rem; padding:60pt 0 30pt; 
+    }
+
+    #top nav {
+        background: rgba(0,0,0,  0.85); height:initial;
+        position: fixed; width:100%;  z-index: 1;
+        transition: height 0.5s; 
+    }
+    #top nav.act {
+        height:100vh;
+    }
+    #top nav>div {
+        align-items: center;
+    }
+    #top button {
+        display: block; background: none;  color:white;
+        font-size: 1.7rem; border:none;
+    }
+    #top nav.act #menu {
+        left:0; 
+    }
+    #menu {
+        position: absolute; width:70%; left:-100vw;
+        background: white; top:49pt; height:100vh;  padding:20pt;
+        transition: left 0.5s ;
+    }
+    #menu a {
+        display: block; color:black; padding:5pt;
+        margin:0;
+    }
+    #typing {   
+        top:33%;
+    }
+    #typeText {
+        font-size:2.8rem;
+    }
+    #cursor {
+        font-size:2rem; 
+        transform:translateY(-7px);
+    }
+
+    #about div {
+        flex-direction: column;
+    }
+    #about section {
+        padding-bottom: 30px;
+    }
+
+    #portfolio section {
+        flex-direction: column; padding-top: 10vh;
+    }
+   
+    #portfolio li {
+        flex-direction: column;
+    }
+    #portfolio .left b {
+        padding-bottom: 10pt;
+        padding-left:10px;
+    } 
+    #portfolio .left span {
+        padding:0 10pt 10px;
+    }
+    #portfolio nav {
+        text-align: center;
+    }
+    #portfolio .left a {
+        font-size:0.95rem; letter-spacing: -1px; 
+        padding:5pt; margin:30pt 1.2pt 5pt;
+    }
+    #portfolio section:nth-last-of-type(even) .right {
+        margin: 0; text-align: center;
+    }
+    
+    #portfolio section:nth-of-type(odd)  {
+        padding-top: 0;
+    }
+    #portfolio section:nth-of-type(odd) .left {order:2; }
+    #portfolio section:nth-of-type(odd) .right {order:1; padding-bottom: 10vh;}
+
+
+    #popup img {
+       max-width: 90%;
+    }
+
+    #contact div {
+        flex-direction: column;
+    }
+    #contact section:last-child {
+        padding:10vh 0;
+    }
+}

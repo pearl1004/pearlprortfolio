@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pearl Portfolio</title>    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>    
+    <script src="js/po.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="css/po.css">
+</head>
+<body>
+    <header id="top">
+        <nav>
+            <div>
+                <button type="button" class="material-symbols-outlined">menu</button>
+                <p>kim pearl</p>
+                <div id="menu">
+                    <a href="#top">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#event">Event</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+        </nav>
+        <div id="typing">
+            <span id="typeText"></span>
+            <span id="cursor">|</span>
+        </div>
+        <a href="#about" id="click">
+            <b class="material-symbols-outlined">keyboard_arrow_down</b>
+            <i>Click</i>
+        </a>
+    </header>
+    <section id="about">
+        <h2>About</h2>
+        <img src="images/me.png" alt="홍길동">
+        <q>
+            <mark>There are no rules in life!</mark>
+        </q>
+        <div>
+            <section>
+                <h3>Profile</h3>
+                <p>
+                    이름: 김진주 (kim jin joo)<br>
+                    나이: 1977년생<br>
+                    주소: 경기도 안산시 상록구 사동<br>
+                    연락처: 010-****-6889<br>
+                    이메일: pearlcap@naver.com
+                </p>
+            </section>
+            <section>
+                <h3>Experiences & Education</h3>
+                <p>
+                    2025.03. ~ 2025.07. : 라인컴퓨터아트학원 디지털디자인 수업중<br>
+                    2006.00. ~ 2012.12. : M&H 사무 및 Package design<br>
+                    2000.00. ~ 2006.00. : 아름다운사람들,젤존뷰티,이손네일컬리지,금성직업전문학교<br>
+                    <span style='padding-left:155px;'></span>사무및 메이크업 네일아트 강사<br>
+                    1999.00. ~ 2000.00. : 레이디경향/Travel&Culture -stylelist <br>                         
+                    1998.00. ~ 1999.00. : 자영업<br>
+                    1996.03. ~ 1998.02. : 연성대학교 패션대자인학과 졸업<br>
+                    <br>
+                    국가자격 : 웹모션디자인,  웹 디자인, 사회복지사2급, 운전면허 1종<br>
+                    그외자격 : 교육증(연성대학), 건강가정사, 네알아트, ITQ파워포인트
+
+
+                    
+            </section>
+            <section id="skill">
+                <h3>Skill</h3>
+                <form>
+                    <p>
+                        <label>Photoshop</label>
+                        <progress value="0" max="100" id="photoshop">50%</progress>
+                    </p>
+                    <p>
+                        <label>Illustrator</label>
+                        <progress value="0" max="100" id="illust">50%</progress>
+                    </p>
+                    <p>
+                        <label>HTML/CSS</label>
+                        <progress value="0" max="100" id="html">5%</progress>
+                    </p>
+                    <p>
+                        <label>Javascript/jQuery</label>
+                        <progress value="0" max="100" id="js">5%</progress>
+                    </p>
+                    <p>
+                        <label>Figma</label>
+                        <progress value="0" max="100" id="figma">0%</progress>
+                    </p>
+                </form>
+            </section>
+        </div>
+    </section>
+    <div id="portfolio">
+        <h2>Portfolio</h2>
+        <section id="port1">
+            <div class="left">
+                <h3>Jewelry</h3>
+                <ul>
+                    <li>
+                        <b>사이트명</b>
+                        <span>Sun Jewelry 리뉴얼</span>
+                    </li>
+                    <li>
+                        <b>제작기간</b>
+                        <span>2025.05.01 ~ 2025.0.20</span>
+                    </li>
+                    <li>
+                        <b>페이지명</b>
+                        <span>메인 /홍보 /상품 /이벤트 /찿아오는길/푸터<br>earring | necklace | ring | bracelet</span>
+                    </li>
+                    <li>
+                        <b>키워드</b>
+                        <span>고품격, 럭셔리한 이미지</span>
+                    </li>
+                    <li>
+                        <b>콘셉트</b>
+                        <span>기존 웹사이트는 상품이미지와 웹이미지와 맞지 않은 디자인이 적용되었고 상품의 정보를 쉽게 파악할수 없어서 상품의 이미지 강조와 럭셔리한 분위기로 전환 하였으며 고객위 자존감과 품을을 높여 상품을 구입하였을때 고객님의 만족도를 올릴수  있도록 리뉴얼하였습니다.</span>
+                    </li>
+                </ul>
+                <nav>
+                    <a href="https://www.figma.com/proto/Ji3Q2yIQUHWA2RZMzWEmjR/Sun-Jewelry?node-id=3-28&p=f&t=nKk76vZchK5gmEZH-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=3%3A28 " target="_blank">포로토타입 바로가기</a> 
+                    <a href="https://pearlcap.cafe24.com/" target="_blank">웹사이트 바로가기</a> 
+                    <a href="https://pearlcap.cafe24.com/" target="_blank" class="mobile-1">모바일웹 바로가기</a>
+                </nav>
+            </div>
+            <div class="right">
+                <img src="images/portfolio_Jewelry.png" alt="Sun Jewelry목업">
+            </div>
+        </section>        
+    </div>
+    <section id="event">
+        <h2>Event & Detail</h2>
+        <div>
+            <button type="button">
+                <img src="images/event-1.jpg" alt="펫트리움 미끄럼방지매트">
+                <i class="material-symbols-outlined">search</i>
+                <b>자세히보기</b>
+            </button>
+            <button type="button">
+                <img src="images/event-2.jpg" alt="몽모랑시다트체리정">
+                <i class="material-symbols-outlined">search</i>
+                <b>자세히보기</b>
+            </button>
+            <button type="button">
+                <img src="images/event-3.jpg" alt="CU+삼성증권통장">
+                <i class="material-symbols-outlined">search</i>
+                <b>자세히보기</b>
+            </button>
+            <button type="button">
+                <img src="images/event-4.jpg" alt="전자렌지용기">
+                <i class="material-symbols-outlined">search</i>
+                <b>자세히보기</b>
+            </button>
+            <button type="button">
+                <img src="images/event-5.jpg" alt="SNS로 공유하고 선물받자 이벤트">
+                <i class="material-symbols-outlined">search</i>
+                <b>자세히보기</b>
+            </button>
+            <button type="button">
+                <img src="images/event-6.jpg" alt="한번더 룰렛을 돌려라!">
+                <i class="material-symbols-outlined">search</i>
+                <b>자세히보기</b>
+            </button>
+            <button type="button">
+                <img src="images/event-7.jpg" alt="레모나-S포스팅이벤트!">
+                <i class="material-symbols-outlined">search</i>
+                <b>자세히보기</b>
+            </button>
+            <button type="button">
+                <img src="images/event-8.jpg" alt="산양유">
+                <i class="material-symbols-outlined">search</i>
+                <b>자세히보기</b>
+            </button>
+            <button type="button">
+                <img src="images/event-9.jpg" alt="봄페스티벌 TOP7">
+                <i class="material-symbols-outlined">search</i>
+                <b>자세히보기</b>
+            </button>
+            <button type="button">
+                <img src="images/event-10.jpg" alt="봄페스티벌 TOP7">
+                <i class="material-symbols-outlined">search</i>
+                <b>자세히보기</b>
+            </button>
+            <button type="button">
+                <img src="images/event-11.jpg" alt="봄페스티벌 TOP7">
+                <i class="material-symbols-outlined">search</i>
+                <b>자세히보기</b>
+            </button>
+            <button type="button">
+                <img src="images/event-12.jpg.png" alt="봄페스티벌 TOP7">
+                <i class="material-symbols-outlined">search</i>
+                <b>자세히보기</b>
+            </button>
+        </div>
+    </section>
+    <section id="contact">
+        <h2>
+            Contact Us
+            <b>소중한 연락을 기다립니다.</b>
+        </h2>
+        <div>
+            <section>
+                <i class="fa-solid fa-envelope"></i>
+                <h3>E-mail</h3>
+                <p>pearlcap@naver.com</p>
+            </section>
+            <section>
+                <a href="tel:010-****-6889" class="fa-solid fa-phone"></a>
+                <h3>Phone</h3>
+                <a href="tel:010-****-6889">010.****.6889</a>
+            </section>
+        </div>
+    </section>
+    <!-- 큰이미지보이기 (팝업모달) -->
+     <section id="popup" title="클릭하면 창이 닫힙니다.">
+        <h3>작품제목</h3>
+        <img src="#" alt="#">        
+     </section>
+
+</body>
+</html>
