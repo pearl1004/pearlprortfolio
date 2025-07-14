@@ -178,7 +178,7 @@ h2 {
    flex:5; text-align: justify;
 }
 #portfolio a {
-    padding:5pt 15pt 6pt; border:1px solid #ddd;
+    padding:5pt 15pt 5pt; border:1px solid #ddd;
     margin:30pt 2pt 5pt; border-radius: 20pt; display: inline-block;
     font-weight: 500; font-size:1.1rem;
     transition: 0.5s;
