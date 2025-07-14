@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>미세먼지 경보 현황</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+    }
+    .alert-item {
+      border: 1px solid red;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #fff0f0;
+    }
+  </style>
+  <script>
+    // HTML 문서가 완전히 로드된 후 실행될 코드
+    document.addEventListener("DOMContentLoaded", () => {
+      // 공공데이터 API의 URL (미세먼지 경보 데이터 요청)
+      const fullUrl = 'https://apis.data.go.kr/B552584/UlfptcaAlarmInqireSvc/getUlfptcaAlarmInfo?serviceKey=MhUxeqUuGHHB%2F1eRwkrtnYH0DrvHIUk8VnFd8smXzrwkpaH9FWsMLZK%2Ffb%2BTDNrwNVg7ixIB4HnJ%2BlHZr%2BbAPw%3D%3D&returnType=json&numOfRows=100&pageNo=1&year=2025&itemCode=PM10';
+
+      // 데이터를 비동기적으로 가져오는 함수 정의 (화살표 함수 + async)
+      const fetchData = async () => {
+        const resultDiv = document.getElementById('result'); // 결과를 표시할 div 선택
+
+        try {
+          // API로부터 응답 받아오기
+          const response = await fetch(fullUrl); // fetch로 HTTP 요청
+          const jsonData = await response.json(); // JSON 데이터로 변환
+
+          // 데이터를 결과 영역에 표시
+          showResult(jsonData);
+        } catch (error) {
+          // 에러 발생 시 메시지 표시
+          resultDiv.innerHTML = `<p style="color: red;">데이터 가져오기 실패: ${error.message}</p>`;
+        }
+      }
+
+      // JSON 데이터를 HTML로 변환하여 화면에 출력하는 함수
+      function showResult(jsonData) {
+        const items = jsonData.response.body.items; // 응답에서 미세먼지 경보 항목들 추출
+        const resultDiv = document.getElementById('result'); // 출력 대상 div
+
+        // 항목들을 map으로 돌면서 HTML 문자열로 구성
+        resultDiv.innerHTML = items.map(item => `
+          <div class="alert-item">
+            <p>지역: ${item.districtName || '-'}</p>      <!-- 지역 정보 -->
+            <p>날짜: ${item.dataDate || '-'}</p>           <!-- 데이터 날짜 -->
+            <p>경보 수준: ${item.issueGbn || '-'}</p>      <!-- 경보 수준 (주의보/경보 등) -->
+            <p>발령일: ${item.issueDate || '-'}</p>        <!-- 발령된 날짜 -->
+            <p>발령농도: ${item.issueVal || '-'}</p>       <!-- 발령 기준 농도 -->
+            <p>경보단계: ${item.itemCode || '-'}</p>       <!-- 항목 코드 (예: PM10 등) -->
+          </div>
+        `).join(''); // 배열을 문자열로 이어 붙이기
+      }
+
+      // 함수 실행: 데이터 가져오기 시작
+      fetchData();
+    });
+  </script>
+</head>
+<body>
+  <h1>미세먼지 경보 현황</h1>
+  <div id="result">로딩 중...</div>
+</body>
+</html>

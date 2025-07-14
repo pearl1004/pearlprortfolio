@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>미세먼지 경보 현황</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+    select {
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .alert-item {
+      border: 1px solid #ccc;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      background-color: #f9f9f9;
+    }
+    h1{font-size: 1.6rem;}
+  </style>
+</head>
+<body>
+<!-- PM10: 먼지 크기가 10마이크로미터(㎛) 이하 크기인 미세먼지  -->
+  <h1>📢 미세먼지(PM10) 경보 현황</h1>
+
+  <label for="area">지역 선택: </label>
+  <select id="area">
+    <option value="">-- 지역을 선택하세요 --</option>
+    <option value="경북">경북</option>
+    <option value="대전">대전</option>
+    <option value="전북">전북</option>
+    <option value="인천">인천</option>
+    <option value="광주">광주</option>
+    <option value="대구">대구</option>
+    <option value="경남">경남</option>
+    <option value="경기">경기</option>
+  </select>
+
+  <div id="result"></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const regionSelect = document.getElementById('area');
+      const resultDiv = document.getElementById('result');
+
+      regionSelect.addEventListener('change', () => {
+        const selectedRegion = regionSelect.value;
+        if (selectedRegion) {
+          fetchData(selectedRegion);
+        } else {
+          resultDiv.innerHTML = '';
+        }
+      });
+
+      async function fetchData(region) {
+		const fullUrl = 'https://apis.data.go.kr/B552584/UlfptcaAlarmInqireSvc/getUlfptcaAlarmInfo?serviceKey=MhUxeqUuGHHB%2F1eRwkrtnYH0DrvHIUk8VnFd8smXzrwkpaH9FWsMLZK%2Ffb%2BTDNrwNVg7ixIB4HnJ%2BlHZr%2BbAPw%3D%3D&returnType=json&numOfRows=100&pageNo=1&year=2025&itemCode=PM10';
+        try {
+          const response = await fetch(fullUrl);
+          const jsonData = await response.json();
+          showResult(jsonData, region);
+        } catch (error) {
+          resultDiv.innerHTML = `<p style="color: red;">데이터 가져오기 실패: ${error.message}</p>`;
+        }
+      }
+
+      function showResult(jsonData, region) {
+        const items = jsonData.response.body.items;
+        const filtered = items.filter(item => item.districtName === region);
+
+        if (filtered.length === 0) {
+          resultDiv.innerHTML = `<p>📭 '${region}' 지역의 미세먼지 경보 정보가 없습니다.</p>`;
+          return;
+        }
+
+        resultDiv.innerHTML = filtered.map(item => `
+          <div class="alert-item">
+            <p><strong>📍 지역:</strong> ${item.districtName || '-'}</p>
+            <p><strong>📅 날짜:</strong> ${item.dataDate || '-'}</p>
+            <p><strong>⚠️ 경보 수준:</strong> ${item.issueGbn || '-'}</p>
+            <p><strong>📢 발령일:</strong> ${item.issueDate || '-'}</p>
+            <p><strong>🌫️ 발령 농도:</strong> ${item.issueVal || '-'}</p>
+          </div>
+        `).join('');
+      }
+    });
+  </script>
+</body>
+</html>
